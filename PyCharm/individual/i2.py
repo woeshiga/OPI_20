@@ -71,13 +71,14 @@ def display_json(words):
 @click.option("-r", "--result", required=True, type=int)
 def add(filename, word, result):
     word = {
-            "word": word,
-            "result": result
-        }
+        "word": word,
+        "result": result
+    }
     add_words(
         filename,
         word
     )
+
 
 @click.command()
 @click.argument("filename")
@@ -91,19 +92,21 @@ def display(filename):
 
     display_json(words)
 
+
 @click.command()
 @click.argument("filename")
 def update(filename):
     update_json(filename)
 
+
 @click.group()
 def main():
     pass
 
+
 main.add_command(add)
 main.add_command(update)
 main.add_command(display)
-
 
 if __name__ == '__main__':
     main()
